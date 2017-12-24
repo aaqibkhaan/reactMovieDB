@@ -1,0 +1,5 @@
+public/bundle.js
+node_modules/
+.eslintcache
+*.map
+*.bundle.js
