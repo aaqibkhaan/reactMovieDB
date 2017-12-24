@@ -4,7 +4,7 @@
   "description": "ReactJs Application using Movie DB API to display latest and upcoing movies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "webpack-dev-server"
   },
   "author": "aaqibrashid@hotmail.com",
   "license": "ISC",
