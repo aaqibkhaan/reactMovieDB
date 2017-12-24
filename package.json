@@ -4,15 +4,19 @@
   "description": "ReactJs Application using Movie DB API to display latest and upcoing movies",
   "main": "index.js",
   "scripts": {
-        "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "fix": "./node_modules/.bin/eslint --fix ./src/components/*"
   },
   "author": "aaqibrashid@hotmail.com",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
+    "babel-register": "^6.26.0",
+    "cors": "^2.8.4",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
