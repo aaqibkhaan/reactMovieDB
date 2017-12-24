@@ -8,10 +8,10 @@ const config = {
   output: {
     path: path.join(__dirname, "public"),
     filename: "bundle.js",
-    publicPath: "/public/"
+    publicPath: "/src/"
   },
   devServer: {
-    publicPath: "/public/",
+    publicPath: "/src/",
     historyApiFallback: true
   },
   resolve: {
