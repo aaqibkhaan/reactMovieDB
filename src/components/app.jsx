@@ -1,6 +1,7 @@
 import React from 'react';
+import Search from './searchBar'
 
 
-const App = () => (<div><h1> This App is Running</h1></div>);
+const App = () => (<div><Search /></div>);
 
 export default App;
