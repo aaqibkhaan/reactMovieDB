@@ -1,13 +1,19 @@
 import React from "react";
+import { Navbar , FormGroup , FormControl  } from 'react-bootstrap';
 
 const searchBar = () => (
-	<div>
-		<div>Hello this is searchBar</div>
-		<form>
-			{" "}
-			<input className="inputSearch" placeholder="search Movie Id" />
-		</form>
-	</div>
+    <Navbar bsStyle='inverse'>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a href="#home">I am a Brand</a>
+        </Navbar.Brand>
+      </Navbar.Header>
+      <Navbar.Form pullRight>
+      				<FormGroup>
+					<FormControl type="text" placeholder="Search" />
+				</FormGroup>{' '}
+      </Navbar.Form>
+    </Navbar>
 );
 
 export default searchBar;
