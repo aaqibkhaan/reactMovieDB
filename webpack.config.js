@@ -37,7 +37,14 @@ const config = {
       {
         test: /\.jsx?$/,
         loader: "babel-loader",
-      }
+      },
+        {
+          use: ['style-loader','css-loader'],
+          test: /\.css$/
+
+        },
+        { test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file-loader?name=fonts/[name].[ext]' }
     ]
   }
 };
