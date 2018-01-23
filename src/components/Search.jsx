@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import MovieCard from './MovieCard'
 
 class Search extends Component {
 
@@ -18,14 +19,9 @@ class Search extends Component {
       });
   }
 render() {
-const baseUrl = "https://image.tmdb.org/t/p/w500/"
   return (<div className="search"> 
     {this.state.results.map(movie => (
-      <div key= {movie.id} className="show-card"> 
-        <img alt={`${movie.title} Movie Poster`} src={`${baseUrl}${movie.poster_path}`} />
-        <h3>{movie.title}</h3>
-        <h4>{movie.overview}</h4>
-      </div>
+      <MovieCard movie={movie}/>
     ))}
     </div>);
   }
