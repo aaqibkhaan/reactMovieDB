@@ -1,7 +1,8 @@
 import React from 'react';
-import Search from './searchBar'
+import Header from './Header'
+import Search from './Search';
 
 
-const App = () => (<div><Search /></div>);
+const App = () => (<div className="container" ><Header /> <Search /></div>);
 
 export default App;

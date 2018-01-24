@@ -21,7 +21,7 @@ class Search extends Component {
 render() {
   return (<div className="search"> 
     {this.state.results.map(movie => (
-      <MovieCard movie={movie}/>
+      <MovieCard key= {movie.id} movie={movie}/>
     ))}
     </div>);
   }
