@@ -1,7 +1,25 @@
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+
+body {
+  margin: 0;
+}
+
+.container {
+
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
  .movie-card {
    float: left;
    margin-right: 2%;
-   border: 2px solid #333;
+   border: 1px solid #c1c1c1;
    border-radius: 4px;
    text-align: left;
    width: 32%;
@@ -9,6 +27,7 @@
    padding-bottom: 19.8%;
    overflow: hidden;
    margin-bottom: 2%;
+
  }
 
  .card-image {
