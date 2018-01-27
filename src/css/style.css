@@ -9,12 +9,6 @@ body {
   margin: 0;
 }
 
-.container {
-
-	max-width: 900px;
-	margin-left: auto;
-	margin-right: auto;
-}
 
  .movie-card {
    float: left;
