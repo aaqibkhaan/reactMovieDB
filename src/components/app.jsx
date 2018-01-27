@@ -1,8 +1,14 @@
 import React from 'react';
-import Header from './Header'
+import { Route, Switch } from "react-router-dom";
 import Search from './Search';
+import MovieDetails from './MovieDetails';
 
 
-const App = () => (<div className="container" ><Header /> <Search /></div>);
+const App = () => (<div >
+	<Switch>
+	<Route exact path="/" component={Search}/>
+	<Route exact path="/moviedetails" component={MovieDetails}/>
+	</Switch>
+	</div>);
 
 export default App;
