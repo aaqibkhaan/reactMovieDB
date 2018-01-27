@@ -5,7 +5,7 @@ import { Navbar, FormGroup, FormControl, Image } from "react-bootstrap";
 
 import TMDBlogo from "../images/movie_logo.svg";
 
-const imgStyle = {
+const logoImg = {
 	height: "150%",
 	width: "auto",
 	paddingBottom: "10px",
@@ -18,7 +18,7 @@ const Header = () => (
 		<Navbar.Header>
 			<Navbar.Brand>
 				<a href="#home">
-					<Image style={imgStyle} src={TMDBlogo} />
+					<Image style={logoImg} src={TMDBlogo} />
 				</a>
 			</Navbar.Brand>
 		</Navbar.Header>

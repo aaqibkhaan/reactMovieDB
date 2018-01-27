@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { URL_DETAIL, API_KEY } from '../const';
+import Header from './Header';
 import MovieCard from './MovieCard';
 
 
@@ -21,7 +22,8 @@ class Search extends Component {
       });
   }
 render() {
-  return (<div className="search"> 
+  return (<div className="search">
+  <Header /> 
     {this.state.results.map(movie => (
       <MovieCard key= {movie.id} movie={movie}/>
     ))}

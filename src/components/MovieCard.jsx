@@ -3,11 +3,12 @@ import { shape , string } from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-width: 32%;
+width: 42%;
 border: 1px solid #c1c1c1;
 border-radius: 4px;
 margin-bottom: 25px;
 padding-right: 10px;
+margin-left: 40px;
 overflow: hidden;
 display: inline-block;
 max-width: 900px;
