@@ -24,6 +24,7 @@ class MovieDetails extends Component {
 // eslint-disable-next-line no-console
 		console.log(movieHere);
 		return <div> <Header/>Title of the movie is {this.state.movieData.original_title} </div>;
+	
 	}
 }
 export default MovieDetails;
