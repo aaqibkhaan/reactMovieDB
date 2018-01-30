@@ -2,11 +2,21 @@ html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  height: 100%;
 }
 
 
 body {
-  margin: 0;
+    background: black;
+    background-repeat: no-repeat;
+    font-family: $lato;
+    background-size: cover;
+    height: 100%;
+}
+#outer-container {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 100%);
+    background-attachment: fixed;
+    margin: 0;
 }
 
 
@@ -57,4 +67,36 @@ body {
  .card-details> p {
    margin: 0;
    font-size: 13px;
+}
+.item-list {
+display: flex;
+flex-direction: row;
+list-style:none;
+white-space: nowrap;
+margin-top: 30px;
+text-align: center;
+}
+
+.item-list > li {
+  padding-right: 50px;
+}
+
+.movie-tagline{
+font-weight: bold;
+font-size: 20px;
+padding-bottom: 20px;
+}
+.movie-overview {
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+.movie-subdetails {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.movie-metadata {
+  display: block;
+    color: #00FC87;
 }
