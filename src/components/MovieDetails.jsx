@@ -1,30 +1,35 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { URL_DETAIL, API_KEY } from "../const";
+import DetailMovieCard from './DetailMovieCard';
 import Header from './Header';
 
+/* eslint-disable */
+
 class MovieDetails extends Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
-			movieData: " "
+			movieData: { movies: " "}
 		};
 	}
 	componentDidMount() {
+		const { id } = this.props.match.params;
 		axios
 			.get(
-				`${URL_DETAIL}321612${API_KEY}&language=en-US&page=1`
+				`${URL_DETAIL}${id}${API_KEY}&language=en-US&page=1`
 			)
 			.then(response => {
 				this.setState({ movieData: response.data });
 			});
 	}
 	render() {
-		const movieHere = this.state.movieData;
 // eslint-disable-next-line no-console
-		console.log(movieHere);
-		return <div> <Header/>Title of the movie is {this.state.movieData.original_title} </div>;
+console.log(this.props.match.params.id);
+		return <div className= "movie-container"> <Header/><DetailMovieCard movie={this.state.movieData} /></div>;
 	
+// TO DO CHECK HOW TO PASS ALL THESE PROPERTIES TO MovieCard component
 	}
 }
 export default MovieDetails;
