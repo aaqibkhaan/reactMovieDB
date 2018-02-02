@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Row, Col, Glyphicon, Button } from "react-bootstrap";
+import { Row, Col, Glyphicon } from "react-bootstrap";
+import { shape , string, number } from 'prop-types';
 import styled from "styled-components";
 import { URL_IMAGE, URL_BACKGROUND } from "../const";
 
@@ -21,15 +22,22 @@ const Image = styled.img`
 `;
 
 class DetailMovieCard extends Component {
-	/* eslint-disable */
+
+		componentDidUpdate() {
+		document.body.style.backgroundImage = `url(${URL_BACKGROUND}${
+			this.props.movie.backdrop_path
+		})`;
+	}
 
 	render() {
 		// eslint-disable no-console
-		console.log(this.props.movie);
+
+		
+/* eslint-disable camelcase */
+		
 		const {
 			poster_path,
 			original_title,
-			backdrop_path,
 			vote_average,
 			vote_count,
 			tagline,
@@ -45,7 +53,7 @@ class DetailMovieCard extends Component {
 				<Image alt="" src={`${URL_IMAGE}${poster_path}`} />
 				<div className="movie-details">
 					<h3>Title of the movie is {original_title} </h3>
-					<ul className="item-list">
+										<ul className="item-list">
 						<li>
 								<Glyphicon className="green" glyph="star" />{" "}
 								{vote_average}
@@ -96,12 +104,23 @@ class DetailMovieCard extends Component {
 			</Wrapper>
 		);
 	}
-	componentDidUpdate() {
-		document.body.style.backgroundImage = `url(${URL_BACKGROUND}${
-			this.props.movie.backdrop_path
-		})`;
-		console.log(this.props.movie.backdrop_path);
-	}
 }
+
+DetailMovieCard.propTypes = {
+	movie: shape({
+    		poster_path: string.isRequired,
+			original_title: string.isRequired,
+			backdrop_path: string.isRequired,
+			vote_average: number.isRequired,
+			vote_count: number.isRequired,
+			tagline: string.isRequired,
+			overview: string.isRequired,
+			release_date: string.isRequired,
+			budget: number.isRequired,
+			revenue: number.isRequired,
+			runtime: number.isRequired
+	}).isRequired
+}
+
 
 export default DetailMovieCard;
