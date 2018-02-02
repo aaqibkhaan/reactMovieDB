@@ -7,14 +7,13 @@ html {
 
 
 body {
-    background: black;
     background-repeat: no-repeat;
-    font-family: $lato;
     background-size: cover;
     height: 100%;
+    background-color: #d3d3d3;
 }
-#outer-container {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 100%);
+.movie-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 100%);
     background-attachment: fixed;
     margin: 0;
 }
@@ -75,6 +74,9 @@ list-style:none;
 white-space: nowrap;
 margin-top: 30px;
 text-align: center;
+font-size: 20px;
+font-weight: bold;
+margin-left: 50px;
 }
 
 .item-list > li {
@@ -97,7 +99,35 @@ padding-bottom: 20px;
 }
 
 .movie-metadata {
-  display: block;
+    display: block;
     color: #00FC87;
+    font-size: 20px;
+    font-family: lato;
 }
 .movie-details { margin-top: 40px; }
+
+.search {
+  background-color: #fafafa;
+}
+
+.show-grid2 {
+  margin-top: 30px;
+}
+
+.green {
+  color: #00FC87;
+  font-size: 15px;
+}
+
+footer {
+    padding: 30px 0;
+    float: left;
+    font-size: .9em;
+    text-align: center;
+    width: 100%;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
