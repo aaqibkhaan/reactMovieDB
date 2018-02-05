@@ -1,35 +1,33 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { URL_DETAIL, API_KEY } from '../const';
-import Header from './Header';
-import MovieCard from './MovieCard';
-
+import React, { Component } from "react";
+import { Navbar, Image } from 'react-bootstrap/lib'
+import TMDBlogo from "../images/movie_logo.svg";
 
 class Search extends Component {
-
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-    results : []
-  };
-
+      value: "",
+      suggestions: []
+    };
   }
 
-    componentDidMount() {
-    axios.get(`${URL_DETAIL}popular${API_KEY}&language=en-US&page=1`)
-    .then((response) => {
-      this.setState({results : response.data.results});
-      });
+  render() {
+    return (
+      <Navbar bsStyle="inverse">
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="/">
+              <span>Brand</span>
+              <Image src={TMDBlogo} />
+            </a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Navbar.Form pullRight>
+        <input />
+        </Navbar.Form>
+      </Navbar>
+    );
   }
-render() {
-  return (<div className="search">
-  <Header /> 
-    {this.state.results.map(movie => (
-      <MovieCard key= {movie.id} movie={movie}/>
-    ))}
-    </div>);
-  }
-
 }
 
 export default Search;
