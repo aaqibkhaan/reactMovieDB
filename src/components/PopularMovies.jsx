@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { URL_DETAIL, API_KEY } from '../const';
-import Header from './Header';
+import Search from './Search';
 import MovieCard from './MovieCard';
 
 
@@ -28,7 +28,7 @@ render() {
       <MovieCard key= {movie.id} movie={movie}/>
     ));
   return (<div className="search">
-  <Header /> 
+  <Search /> 
   {movies}
     </div>);
   }

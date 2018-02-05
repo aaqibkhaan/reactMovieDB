@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { URL_DETAIL, API_KEY } from "../const";
 import DetailMovieCard from './DetailMovieCard';
-import Header from './Header';
+import Search from './Search';
 
 /* eslint-disable */
 
@@ -25,9 +25,15 @@ class MovieDetails extends Component {
 			});
 	}
 	render() {
+		let movieData;
+		if (this.state.movieData) {
+			movieData = <DetailMovieCard movie={this.state.movieData} />
+		} else {
+			movieData = <div> Loading !</div>
+		}
 // eslint-disable-next-line no-console
 console.log(this.props.match.params.id);
-		return <div className= "movie-container"> <Header/><DetailMovieCard movie={this.state.movieData} /></div>;
+		return <div className= "movie-container"> <Search/>{movieData}</div>;
 	
 // TO DO CHECK HOW TO PASS ALL THESE PROPERTIES TO MovieCard component
 	}
