@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import _debounce from 'lodash/debounce'
 import axios from 'axios';
 import styled from "styled-components";
 import Autosuggest from 'react-autosuggest'
+import { Link } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap/lib'
 import TMDBlogo from "../images/movie_logo.svg";
 import { URL_SEARCH, API_KEY_ALT , IMG_SIZE_XSMALL } from '../const';
@@ -31,7 +33,7 @@ return newsuggest };
 
  const renderSuggestion = (suggestion) => (
     <div>
-      <a href="/">
+    <Link to= {`/movie/${suggestion.id}`}> 
       <img className="searchResult-image" alt = "" src= {suggestion.img === null ?  TMDBlogo : ( IMG_SIZE_XSMALL + suggestion.poster_path ) } />
         <div className="searchResult-text">
           <div className="searchResult-name">
@@ -41,7 +43,7 @@ return newsuggest };
           {suggestion.release_date.trim(0, 4)}
         </div>
         </div>
-      </a>
+        </Link>
     </div>
   );
 
@@ -93,6 +95,8 @@ class Search extends Component {
       value,
       onChange: this.onChange
     };
+
+    const onSuggestionsFetchRequested = _debounce((term) => {this.onSuggestionsFetchRequested(term) }, 1000);
     return (
       <Navbar bsStyle="inverse">
         <Navbar.Header>
@@ -106,7 +110,7 @@ class Search extends Component {
         <Navbar.Form pullRight>
       <Autosuggest
         suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
