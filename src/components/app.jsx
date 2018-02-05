@@ -1,13 +1,14 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import Search from './Search';
+import PopularMovies from './PopularMovies';
 import MovieDetails from './MovieDetails';
+import '../css/style.css';
 
 
 const App = () => (<div >
 	<Switch>
-	<Route exact path="/" component={Search}/>
-	<Route exact path="/moviedetails" component={MovieDetails}/>
+	<Route exact path="/" component={PopularMovies}/>
+	<Route exact path="/movie/:id" component={MovieDetails}/>
 	</Switch>
 	</div>);
 
