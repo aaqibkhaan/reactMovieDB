@@ -47,10 +47,12 @@ class DetailMovieCard extends Component {
 			revenue,
 			runtime
 		} = this.props.movie;
+		
+		const img_src = `${URL_IMAGE}${poster_path}`;
 
 		return (
 			<Wrapper>
-				<Image alt="" src={`${URL_IMAGE}${poster_path}`} />
+				<Image alt="" src={img_src} />
 				<div className="movie-details">
 					<h3>Title of the movie is {original_title} </h3>
 										<ul className="item-list">
@@ -108,17 +110,17 @@ class DetailMovieCard extends Component {
 
 DetailMovieCard.propTypes = {
 	movie: shape({
-    		poster_path: string.isRequired,
-			original_title: string.isRequired,
-			backdrop_path: string.isRequired,
-			vote_average: number.isRequired,
-			vote_count: number.isRequired,
-			tagline: string.isRequired,
-			overview: string.isRequired,
-			release_date: string.isRequired,
-			budget: number.isRequired,
-			revenue: number.isRequired,
-			runtime: number.isRequired
+    		poster_path: string,
+			original_title: string,
+			backdrop_path: string,
+			vote_average: number,
+			vote_count: number,
+			tagline: string,
+			overview: string,
+			release_date: string,
+			budget: number,
+			revenue: number,
+			runtime: number
 	}).isRequired
 }
 
