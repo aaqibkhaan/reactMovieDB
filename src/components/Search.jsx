@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Autosuggest from 'react-autosuggest'
 import { Navbar } from 'react-bootstrap/lib'
 import TMDBlogo from "../images/movie_logo.svg";
-import { URL_SEARCH, API_KEY_ALT  } from '../const';
+import { URL_SEARCH, API_KEY_ALT , IMG_SIZE_XSMALL } from '../const';
 
   const Brand = styled.span`
     fontWeight: bold;
@@ -22,6 +22,28 @@ import { URL_SEARCH, API_KEY_ALT  } from '../const';
 
 
 
+  // When suggestion is clicked, Autosuggest needs to populate the input based on the clicked suggestion. 
+
+const getSuggestionValue = suggestion => {const newsuggest = suggestion.title
+
+return newsuggest };
+
+
+ const renderSuggestion = (suggestion) => (
+    <div>
+      <a href="/">
+      <img className="searchResult-image" alt = "" src= {suggestion.img === null ?  TMDBlogo : ( IMG_SIZE_XSMALL + suggestion.poster_path ) } />
+        <div className="searchResult-text">
+          <div className="searchResult-name">
+            {suggestion.title}
+          </div>
+          <div className="searchResult-date">
+          {suggestion.release_date.trim(0, 4)}
+        </div>
+        </div>
+      </a>
+    </div>
+  );
 
 class Search extends Component {
   constructor(props) {
@@ -54,6 +76,12 @@ class Search extends Component {
           }).catch(error => { console.log(`Error Message ${error}`)});
 }
 
+  // Autosuggest will call this function every time you need to clear suggestions.
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    });
+  }
 
 
   render() {
@@ -80,6 +108,9 @@ class Search extends Component {
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        getSuggestionValue={getSuggestionValue}
+        renderSuggestion={renderSuggestion}
+        inputProps={inputProps}
       />
         </Navbar.Form>
       </Navbar>
