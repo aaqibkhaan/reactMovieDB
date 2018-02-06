@@ -6,6 +6,9 @@ import styled from 'styled-components';
 import { Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const Wrapper = styled((Link: any))`
 
@@ -26,7 +29,7 @@ const MovieCard = (props) => (
         <img className="card-image" alt={`${props.movie.title} Movie Poster`} src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} />
         <div className="card-details">
         <h3>{props.movie.title}</h3>
-        <LinesEllipsis className="ellipsis"
+       <ResponsiveEllipsis className="ellipsis"
           text={props.movie.overview}
           maxLine='5'
           ellipsis='...'
