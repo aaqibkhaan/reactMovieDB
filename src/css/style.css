@@ -12,30 +12,17 @@ body {
     height: 100vh;
     color: #373a3c;
 }
+
 #outer-container {
     background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 100%);
     background-attachment: fixed;
     margin: 0;
 }
 
-
- .movie-card {
-   float: left;
-   margin-right: 2%;
-   border: 1px solid #c1c1c1;
-   border-radius: 4px;
-   text-align: left;
-   width: 32%;
-   height: 0;
-   padding-bottom: 19.8%;
-   overflow: hidden;
-   margin-bottom: 2%;
-
- }
-
  .card-image {
 	width: 46%;
    float: left;
+   height: auto;
  }
 
   .card-details{
@@ -53,7 +40,7 @@ body {
    text-transform: uppercase;
  }
 
- .card-details > h4 {
+ .ellipsis {
    margin-top: 30px;
    margin-bottom: 5px;
    color: #666;

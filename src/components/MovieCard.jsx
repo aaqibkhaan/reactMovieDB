@@ -1,10 +1,11 @@
 // @flow
 
-import React from 'react';
+import React  from 'react';
 import { shape , string, number } from 'prop-types';
 import styled from 'styled-components';
 import { Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const Wrapper = styled((Link: any))`
 
@@ -25,18 +26,24 @@ const MovieCard = (props) => (
         <img className="card-image" alt={`${props.movie.title} Movie Poster`} src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} />
         <div className="card-details">
         <h3>{props.movie.title}</h3>
-        <h4>{props.movie.overview}</h4>
+        <LinesEllipsis className="ellipsis"
+          text={props.movie.overview}
+          maxLine='5'
+          ellipsis='...'
+          trimRight
+          basedOn='letters'
+        />
         </div>
       </Wrapper>
       </Col>)
 
 MovieCard.propTypes = {
-	movie: shape({
-		title: string.isRequired,
-		poster_path: string.isRequired,
-		overview: string.isRequired,
+  movie: shape({
+    title: string.isRequired,
+    poster_path: string.isRequired,
+    overview: string.isRequired,
     id: number.isRequired
-	}).isRequired
+  }).isRequired
 }
 
 
