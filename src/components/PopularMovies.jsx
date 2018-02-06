@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Row } from 'react-bootstrap';
 import { URL_DETAIL, API_KEY } from '../const';
 import Search from './Search';
 import MovieCard from './MovieCard';
@@ -28,10 +29,15 @@ render() {
       <MovieCard key= {movie.id} movie={movie}/>
     ));
   return (<div className="search">
-  <Search /> 
+  <Search />
+  <div className="container">
+  <Row>
   {movies}
+  </Row>
+    </div>
     </div>);
   }
+/*  TO DOOOOOOOOOO IS APPLYING BOOTSTRAP CLASSES TO THE MOVIE CARD */
   }
 
 export default PopularMovies;
