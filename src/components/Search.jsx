@@ -34,7 +34,7 @@ return newsuggest };
  const renderSuggestion = (suggestion) => (
     <div>
     <Link to= {`/movie/${suggestion.id}`}> 
-      <img className="searchResult-image" alt = "" src= {suggestion.img === null ?  TMDBlogo : ( IMG_SIZE_XSMALL + suggestion.poster_path ) } />
+      <img className="searchResult-image" alt = {`Poster Path ${suggestion.title}`} src= {suggestion.poster_path === null ?  TMDBlogo : ( IMG_SIZE_XSMALL + suggestion.poster_path ) } />
         <div className="searchResult-text">
           <div className="searchResult-name">
             {suggestion.title}

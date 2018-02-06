@@ -3,6 +3,8 @@ import { Row, Col, Glyphicon } from "react-bootstrap";
 import { shape , string, number } from 'prop-types';
 import styled from "styled-components";
 import { URL_IMAGE, URL_BACKGROUND } from "../const";
+import TMDBlogo from "../images/movie_logo.svg";
+
 
 const Wrapper = styled.div`
 	max-width: 60%;
@@ -48,11 +50,10 @@ class DetailMovieCard extends Component {
 			runtime
 		} = this.props.movie;
 		
-		const img_src = `${URL_IMAGE}${poster_path}`;
 
 		return (
 			<Wrapper>
-				<Image alt="" src={img_src} />
+				<Image alt={`Title is ${original_title}`} src= {poster_path === null ?  TMDBlogo : ( URL_IMAGE + poster_path ) } />
 				<div className="movie-details">
 					<h3>Title of the movie is {original_title} </h3>
 										<ul className="item-list">
