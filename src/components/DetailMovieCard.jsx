@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Glyphicon } from "react-bootstrap";
+import { Glyphicon } from "react-bootstrap";
 import { shape , string, number } from 'prop-types';
 import styled from "styled-components";
 import { URL_IMAGE, URL_BACKGROUND } from "../const";
@@ -7,20 +7,18 @@ import TMDBlogo from "../images/movie_logo.svg";
 
 
 const Wrapper = styled.div`
-	max-width: 60%;
-	overflow: hidden;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 5%;
+	overflow:hidden;
 	border-radius: 3px;
 	background: rgba(0, 0, 0, 0.85);
 	color: white;
+
 `;
 
 const Image = styled.img`
-	float: left;
-	width: 40%;
+	width: 100%;
+	border-radius: 0 0 3px 3px;
 	padding-right: 30px;
+	float: left;
 `;
 
 class DetailMovieCard extends Component {
@@ -52,60 +50,50 @@ class DetailMovieCard extends Component {
 		
 
 		return (
-			<Wrapper>
-				<Image alt={`Title is ${original_title}`} src= {poster_path === null ?  TMDBlogo : ( URL_IMAGE + poster_path ) } />
-				<div className="movie-details">
-					<h3>Title of the movie is {original_title} </h3>
-										<ul className="item-list">
-						<li>
-								<Glyphicon className="green" glyph="star" />{" "}
-								{vote_average}
-						</li>
-						<li>
-								<Glyphicon className="green"  glyph="heart" /> {vote_count}
-						</li>
-					</ul>
-					<div>
-						<div className="movie-tagline"> {tagline} </div>
-						<div className="movie-overview">{overview} </div>
-					</div>
-					<div className="movie-subdetails">
-						<Row className="show-grid1">
-							<Col xs={6} md={6}>
-								Realease Date :
-								<span className="movie-metadata">
-									{" "}
-									{release_date}
-								</span>
-							</Col>
-							<Col xs={6} md={6}>
-								Running Time :
-								<span className="movie-metadata">
-									{" "}
-									{runtime} mins
-								</span>
-							</Col>
-						</Row>
-						<Row className="show-grid2">
-							<Col xs={6} md={6}>
-								Budget:
-								<span className="movie-metadata">
-									{" "}
-									$ {budget}{" "}
-								</span>
-							</Col>
-							<Col xs={6} md={6}>
-								Revenue:
-								<span className="movie-metadata">
-									{" "}
-									$ {revenue}
-								</span>
-							</Col>
-						</Row>
-					</div>
+			<div className= "container nopadding">
+			<Wrapper className="col-xs-12 nopadding">
+				<div className="poster-container col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 nopadding">
+				<Image alt={`Title is ${original_title}`} src= {poster_path === null ?  TMDBlogo : ( URL_IMAGE + poster_path ) } />	
 				</div>
+				<div className="meta-data-container col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5">
+					<h2>{original_title} </h2>
+						<ul className="item-list">
+							<li>
+								<Glyphicon className="green" glyph="star" />
+								{vote_average}
+							</li>
+							<li>
+								<Glyphicon className="green"  glyph="heart" /> {vote_count}
+							</li>
+						</ul>
+					<span className="movie-tagline"> {tagline} </span>
+					<p className="movie-overview">{overview} </p>
+					<div className="movie-subdetails"> 
+						<div className="row nopadding">
+							<div className="col-xs-6">
+								Realease Date:
+							<span className="movie-metadata"> {release_date} </span>
+							 </div>
+							<div className="col-xs-6">
+								Running Time:
+							<span className="movie-metadata"> {runtime} mins</span>
+							 </div>
+						</div>
+						<div className="row movie-subdetails2">
+							<div className="col-xs-6">
+								Budget:
+							<span className="movie-metadata"> $ {budget} </span>
+							 </div>
+							 <div className="col-xs-6">
+								Revenue:
+							<span className="movie-metadata"> $ {revenue} </span>
+							 </div>
+						</div>
+						</div>
+					</div>
 			</Wrapper>
-		);
+			</div>
+		)
 	}
 }
 
