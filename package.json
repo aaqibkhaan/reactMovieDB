@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
+    "build": "webpack -p",
     "fix": "./node_modules/.bin/eslint --fix ./src/components/*"
   },
   "author": "aaqibrashid@hotmail.com",

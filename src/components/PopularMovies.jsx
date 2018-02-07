@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Row } from 'react-bootstrap';
+import { Grid , Row } from 'react-bootstrap';
 import { URL_DETAIL, API_KEY } from '../const';
 import Search from './Search';
 import MovieCard from './MovieCard';
@@ -30,11 +30,11 @@ render() {
     ));
   return (<div className="search">
   <Search />
-  <div className="container">
+  <Grid fluid={false}>
   <Row>
   {movies}
   </Row>
-    </div>
+    </Grid>
     </div>);
   }
 /*  TO DOOOOOOOOOO IS APPLYING BOOTSTRAP CLASSES TO THE MOVIE CARD */
