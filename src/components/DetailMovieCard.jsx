@@ -2,22 +2,25 @@ import React, { Component } from "react";
 import { Glyphicon } from "react-bootstrap";
 import { shape , string, number } from 'prop-types';
 import styled from "styled-components";
+import Modal from './Modal';
 import { URL_IMAGE, URL_BACKGROUND } from "../const";
 import TMDBlogo from "../images/movie_logo.svg";
 
 
 const Wrapper = styled.div`
-	overflow:hidden;
+	width: 80%;
+	overflow: hidden;
 	border-radius: 3px;
 	background: rgba(0, 0, 0, 0.85);
 	color: white;
+	margin-left: 10%;
+	margin-right: 10%;
 
 `;
 
 const Image = styled.img`
 	width: 100%;
 	border-radius: 0 0 3px 3px;
-	padding-right: 30px;
 	float: left;
 `;
 
@@ -48,7 +51,14 @@ class DetailMovieCard extends Component {
 			runtime
 		} = this.props.movie;
 		
-
+		let modalID ;
+		if(typeof this.props.movie.id !== "undefined"){
+			modalID = <Modal modal={this.props.movie.id} />	
+} 
+			else {
+			modalID = <div>Loading !!! </div>
+	
+		}
 		return (
 			<div className= "container nopadding">
 			<Wrapper className="col-xs-12 nopadding">
@@ -64,6 +74,9 @@ class DetailMovieCard extends Component {
 							</li>
 							<li>
 								<Glyphicon className="green"  glyph="heart" /> {vote_count}
+							</li>
+							<li>
+								<Glyphicon className="green"  glyph="heart" /> {modalID}
 							</li>
 						</ul>
 					<span className="movie-tagline"> {tagline} </span>
