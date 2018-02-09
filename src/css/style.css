@@ -181,7 +181,7 @@ footer {
 
 footer > span {
       display: block;
-    padding: 0 0 10px;
+    padding: 0px;
 }
 
 
@@ -193,6 +193,7 @@ footer > span > a {
   color: #6A6C6E;
     font-size: .75em;
     transition:.7s;
+    line-height: 2em;
 }
 
 
