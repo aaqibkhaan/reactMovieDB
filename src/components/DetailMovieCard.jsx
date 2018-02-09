@@ -10,7 +10,6 @@ const Image = styled.img`
 	width: 100%;
 	border-radius: 0 0 3px 3px;
 	float: left;
-	padding-right: 30px;
 `;
 
 class DetailMovieCard extends Component {
@@ -49,8 +48,8 @@ class DetailMovieCard extends Component {
 	
 		}
 		return (
-			<div className= "container my-container nopadding">
-			<div className="col-xs-12 nopadding wrapper">
+			<div className= "container my-container">
+			<div className="col-xs-12 wrapper">
 				<div className="poster-container col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 nopadding">
 				<Image alt={`Title is ${original_title}`} src= {poster_path === 'undefined' ?  TMDBlogo : ( URL_IMAGE + poster_path ) } />	
 				</div>

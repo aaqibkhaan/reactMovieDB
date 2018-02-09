@@ -98,7 +98,7 @@ class Search extends Component {
 
     const onSuggestionsFetchRequested = _debounce((term) => {this.onSuggestionsFetchRequested(term) }, 1000);
     return (
-      <Navbar bsStyle="inverse">
+      <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="/">
