@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+
 }
 html {
   font-family: sans-serif; /* 1 */
@@ -7,6 +8,8 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
   height: 100%;
   color: #000;
+
+
 }
 
 
@@ -16,6 +19,7 @@ body {
     background-size: cover;
     color: #000;
     font-family: 'Open Sans', sans-serif;
+
 }
 
 .poster-image {
@@ -36,6 +40,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 100%);
     background-attachment: fixed;
     margin: 0;
+    overflow-x:hidden;
 }
 ..meta-data-container{
   margin-left: 12em;
@@ -296,4 +301,26 @@ footer > span > a:hover {
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.85);
   color: white;
+}
+
+/* ----------- Non-Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 2000px)  { 
+    .meta-data-container{
+      padding-left: 5rem;
+    }
+
+    .text-ellipsis {
+      padding-top: 2rem;
+    height: 20rem;
+   font-size: 15px;
+   line-height: 3rem;
+   -webkit-line-clamp: 6;
+  text-overflow: ellipsis;
+ }
+ .card-details {
+  margin-top: 1rem;
+ }
+
 }
