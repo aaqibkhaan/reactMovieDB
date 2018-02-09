@@ -11,22 +11,42 @@ class Modal extends Component {
     super(props);
     this.state = {
       isOpen: false,
+      videoID: ""
     };
     this.openModal = this.openModal.bind(this);
   }
 
+  componentWillMount() {
+    const id = this.props.modal;
+    const url = `${VIDEO_LINK}${id}/videos${API_KEY}`;
+    axios.get(url).then(response => {
+      this.setState({ videoID: response.data.results[0].key });
+    });
+  }
   openModal() {
     this.setState({ isOpen: true });
   }
 
   render() {
+    let videoID;
+    if (this.state.videoID !== "") {
+      videoID = this.state.videoID;
+      // eslint-disable-next-line no-console
+      console.log(videoID);
+    }
+
     return (
-          <ModalVideo
+      <div className="play-list">
+        <ModalVideo
           channel="youtube"
           isOpen={this.state.isOpen}
-          videoId='xs-1234315'
+          videoId={videoID}
           onClose={() => this.setState({ isOpen: false })}
-        />  
+        />
+        <li className="col-m-4" onClick={this.openModal}>
+          <Glyphicon className="green" glyph="play" /> Play Trailer
+        </li>
+      </div>
     );
   }
 }
