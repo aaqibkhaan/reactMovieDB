@@ -11,11 +11,13 @@ class MovieDetails extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movieData: { movies: " "}
+			movieData: { }
 		};
 	}
 	componentDidMount() {
+			
 		const { id } = this.props.match.params;
+	
 		axios
 			.get(
 				`${URL_DETAIL}${id}${API_KEY}&language=en-US&page=1`
@@ -23,16 +25,19 @@ class MovieDetails extends Component {
 			.then(response => {
 				this.setState({ movieData: response.data });
 			});
+	
 	}
 	render() {
-		let movieData;
-		if (this.state.movieData) {
+
+		let movieData ;
+		if ( (typeof this.state.movieData !== 'undefined') || !(this.state.movieData.isEmpty()) ) {
 			movieData = <DetailMovieCard movie={this.state.movieData} />
+
 		} else {
 			movieData = <div> Loading !</div>
 		}
-// eslint-disable-next-line no-console
-console.log(this.props.match.params.id);
+
+
 		return <div className= "movie-container"> <Search/>{movieData}</div>;
 	
 // TO DO CHECK HOW TO PASS ALL THESE PROPERTIES TO MovieCard component
