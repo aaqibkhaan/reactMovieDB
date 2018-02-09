@@ -6,22 +6,11 @@ import Modal from './Modal';
 import { URL_IMAGE, URL_BACKGROUND } from "../const";
 import TMDBlogo from "../images/movie_logo.svg";
 
-
-const Wrapper = styled.div`
-	width: 80%;
-	overflow: hidden;
-	border-radius: 3px;
-	background: rgba(0, 0, 0, 0.85);
-	color: white;
-	margin-left: 10%;
-	margin-right: 10%;
-
-`;
-
 const Image = styled.img`
 	width: 100%;
 	border-radius: 0 0 3px 3px;
 	float: left;
+	padding-right: 30px;
 `;
 
 class DetailMovieCard extends Component {
@@ -60,25 +49,24 @@ class DetailMovieCard extends Component {
 	
 		}
 		return (
-			<div className= "container nopadding">
-			<Wrapper className="col-xs-12 nopadding">
+			<div className= "container my-container nopadding">
+			<div className="col-xs-12 nopadding wrapper">
 				<div className="poster-container col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 nopadding">
-				<Image alt={`Title is ${original_title}`} src= {poster_path === null ?  TMDBlogo : ( URL_IMAGE + poster_path ) } />	
+				<Image alt={`Title is ${original_title}`} src= {poster_path === 'undefined' ?  TMDBlogo : ( URL_IMAGE + poster_path ) } />	
 				</div>
 				<div className="meta-data-container col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5">
 					<h2>{original_title} </h2>
-						<ul className="item-list">
-							<li>
-								<Glyphicon className="green" glyph="star" />
+						<ul className="row item-list">
+							<li className="col-m-4">
+							<Glyphicon className="green item-Glyph" glyph="star" />
 								{vote_average}
 							</li>
-							<li>
-								<Glyphicon className="green"  glyph="heart" /> {vote_count}
+							<li className="col-m-4">
+							<Glyphicon className="green item-Glyph" glyph="heart" />
+							{vote_count}
 							</li>
-							<li>
-								<Glyphicon className="green"  glyph="heart" /> {modalID}
-							</li>
-						</ul>
+							{modalID}
+						 </ul>
 					<span className="movie-tagline"> {tagline} </span>
 					<p className="movie-overview">{overview} </p>
 					<div className="movie-subdetails"> 
@@ -104,7 +92,7 @@ class DetailMovieCard extends Component {
 						</div>
 						</div>
 					</div>
-			</Wrapper>
+			</div>
 			</div>
 		)
 	}
