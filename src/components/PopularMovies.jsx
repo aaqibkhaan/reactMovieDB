@@ -23,8 +23,6 @@ class PopularMovies extends Component {
       });
   }
 render() {
-  // eslint-disable-next-line no-console
- console.log(this.state.results);
  const movies = this.state.results.map(movie => (
       <MovieCard key= {movie.id} movie={movie}/>
     ));

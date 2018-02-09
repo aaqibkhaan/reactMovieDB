@@ -31,8 +31,6 @@ class Modal extends Component {
     let videoID;
     if (this.state.videoID !== "") {
       videoID = this.state.videoID;
-      // eslint-disable-next-line no-console
-      console.log(videoID);
     }
 
     return (

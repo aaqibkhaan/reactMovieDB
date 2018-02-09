@@ -73,7 +73,6 @@ class Search extends Component {
     /* eslint-disable no-console */
 
   return inputLength === 0 ? [] : axios.get(url).then(response => {
-        console.log(response.data.results);
             this.setState({suggestions: response.data.results})
           }).catch(error => { console.log(`Error Message ${error}`)});
 }
