@@ -96,11 +96,13 @@ class Search extends Component {
     };
 
     const onSuggestionsFetchRequested = _debounce((term) => {this.onSuggestionsFetchRequested(term) }, 1000);
+/* eslint-disable */
+
     return (
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">
+            <a href="#">
             <Brand />
               <Image alt = " " src={TMDBlogo}/>
             </a>

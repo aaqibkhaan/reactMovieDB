@@ -21,7 +21,6 @@ class DetailMovieCard extends Component {
 	}
 
 	render() {
-		// eslint-disable no-console
 
 		
 /* eslint-disable camelcase */

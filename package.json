@@ -1,11 +1,15 @@
 {
   "name": "movie_reactjs",
   "version": "1.0.0",
-  "description": "ReactJs Application using Movie DB API to display latest and upcoing movies",
+  "description": "ReactJs Application using Movie DB API to display most popular movies",
+  "homepage": "https://aaqibkhaan.github.io/reactMovieDB",
   "main": "index.js",
   "scripts": {
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "webpack-dev-server",
-    "build": "webpack -p",
+    "pro": "webpack -p",
     "fix": "./node_modules/.bin/eslint --fix ./src/components/*"
   },
   "author": "aaqibrashid@hotmail.com",
@@ -52,7 +56,9 @@
     "eslint-plugin-react": "^7.5.1",
     "file-loader": "^1.1.6",
     "flow-bin": "^0.61.0",
+    "gh-pages": "^1.1.0",
     "prettier": "^1.9.2",
+    "react-scripts": "^1.1.1",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"

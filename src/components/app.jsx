@@ -8,7 +8,7 @@ import '../css/style.css';
 
 const App = () => (<div >
 	<Switch>
-	<Route exact path="/" component={PopularMovies}/>
+	<Route exact path="/" component={(props) => <PopularMovies {...props}/>}/>
 	<Route exact path="/movie/:id" component={(props) => <MovieDetails {...props}/>}/>
 	</Switch>
 	</div>);
