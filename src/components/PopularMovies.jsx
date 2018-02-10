@@ -21,6 +21,7 @@ class PopularMovies extends Component {
     .then((response) => {
       this.setState({results : response.data.results});
       });
+    document.body.style.backgroundImage = `url()`;
   }
 render() {
  const movies = this.state.results.map(movie => (
